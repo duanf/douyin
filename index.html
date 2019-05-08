@@ -17,13 +17,16 @@
     a:hover{text-decoration:none;}/*指鼠标在链接*/
     a:active{text-decoration:none;}/* 指正在点的链接*/
     .wx{
-        width: 90%;
-        margin-left: 5%;
+		float:right;
+		margin-top:20px;
+		
+        width: 100px;
+        margin-right: 5%;
         font-size: 18px;
         color:white;
         text-align: center;
         background-color: #ff7f2e;
-        border-radius: 5px;
+        border-radius: 20px;
         line-height: 40px;
     }
     .wx a{
@@ -66,15 +69,45 @@
         color:red;
         margin-top:-130px;
     }
+	img {
+		padding-left:10px;
+		width:80px;
+		height:80px;
+		border-radius:40px;
+	}
+	p{
+		float:left;
+	}
+	#copy_content {
+		line-height:80px;
+		padding-left:10px;
+	}
+	.row {
+		width:100%;
+		height:auto;
+		box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	}
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.row1 {
+		padding-top:20px;
+		height:100px;
+	}
 </style>
 
 
 </head>    
 <body>    
 <div class="row">
+<div class="row1">
+	<p class="touxiang"> <img src="img/20190508221906.jpg" /></p>
+	<p id="copy_content">duanfei900714</p>
      <div class="wx" onclick="copywx()">
-         <a href="weixin://"><span id="copy_content">duanfei900714</span>（微信同号）,复制跳转微信</a>
+         <a href="weixin://">+关注</a>
      </div>
+</div>	 
 </div>
 
 </body>    
