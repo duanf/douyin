@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>    
-    <meta charset="UTF-8">
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="yes" name="apple-touch-fullscreen">
-    <meta content="telephone=no,email=no" name="format-detection">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
-    <meta name="data-spider" content="seller_pc">
-    <title>
-      
-    </title>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+	<title>Document</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courgette">
+	<link rel="stylesheet" href="./example/example.css">
+      <link rel="stylesheet" href="./example/buttons.css">
+      <link rel="stylesheet" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
 
+      <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+
+	<script src="./dist/sweetalert2.min.js"></script>
+      <link rel="stylesheet" href="./dist/sweetalert2.min.css">
+
+      <!-- IE support -->
+      <script src="lib/es6-promise.min.js"></script>
+
+      <!-- Promise.finally support -->
+      <script src="lib/finally.js"></script>
+ 
 <style>
     a:link{text-decoration:none;}/* 指正常的未被访问过的链接*/
     a:visited{text-decoration:none;}/*指已经访问过的链接*/
@@ -28,56 +38,25 @@
         background-color: #ff7f2e;
         border-radius: 20px;
         line-height: 40px;
+		box-shadow: 1px 2px 4px 1px rgba(0,0,0,0.2);
     }
     .wx a{
         font-size: 18px;
         color:white;
     }
-    /*弹窗*/
-    .tan{
-        width:80%;
-        height:180px;
-        background-color:#e8e8e8;
-        position:fixed;
-        left:10%;
-        top:40%;
-        display:none;
-        z-index: 200;
-    }
-    .kuang{
-        height:120px;
-        text-align:center;
-        padding: 20px 0;
-    }
-    .txtcss{
-        color:red;
-        font-weight:800;
-        font-size:20px;
-    }
-    .copy{
-        font-size: 16px;
-        float: left;
-        background-color: #5AD700;
-        padding: 5px 20px;
-        margin-left: 25%;color: black;
-        border-radius: 5px;
-    }
-    .copy a{color: white;}
-    .guanbi{
-        width:20px;
-        height:20px;
-        color:red;
-        margin-top:-130px;
-    }
+  
 	.tx {
+		float:left;
 		margin-left:10px;
 		width:80px;
 		height:80px;
 		border-radius:40px;
 	}
-	p{
+	
+	.hm{
 		float:left;
 	}
+	
 	#copy_content {
 		line-height:80px;
 		padding-left:10px;
@@ -93,13 +72,13 @@
 		margin: 0;
 		padding: 0;
 	}
-	.row1 {
+	.success {
 		background-color:#fff;
-		padding-top:20px;
-		height:100px;
+		padding-top:10px;
+		height:90px;
 	}
 	.tup{
-		padding-top:120px;
+		padding-top:100px;
 		font-size: 0;
 	}
 	img {
@@ -107,46 +86,31 @@
 		height:auto
 	}
 </style>
+ 
+</head>
+<body>
+	<div class="row">
 
-
-</head>    
-<body>    
-<div class="row">
-
-<div class="row1">
-	<p class="touxiang"> <img class="tx" src="img/20190508221906.jpg" /></p>
-	<p id="copy_content">arttour001</p>
-     <div class="wx" onclick="copywx()">
+<div class="success">
+	<span class="touxiang"> <img class="tx" src="img/touxiang.jpg" /></span>
+	<span class="hm" id="copy_content">17785122532</span>
+    <div class="wx" id="weix" onclick="copywx()">
          <a href="weixin://">+关注</a>
+
      </div>
 </div>	 
 </div>
-<div class="tup">
-<img src="img/5ae434b1N5bb91c42.jpg" />
-<img src="img/5ae434b6N4d8f22ac.jpg" />
-</div>
-</body>    
+
+</body>
 <script>
-    /*点击复制微信*/
-    function copywx(){
-        const range = document.createRange();
-        range.selectNode(document.getElementById('copy_content'));
-        const selection = window.getSelection();
-        if(selection.rangeCount > 0) selection.removeAllRanges();
-        selection.addRange(range);
-        document.execCommand('copy');
-		
-        alert("复制成功");
-    }
-    /*点击出现弹框*/
-    function showwx(){
-        var ss=document.getElementById('myshow');
-        ss.style.display='block';
-    }
-    /*关闭弹窗*/
-    function closeshow(){
-        var ss=document.getElementById('myshow');
-        ss.style.display='none';
-    }
-</script>
+  	$('.success a').on('click', function() {
+  		 const range = document.createRange();
+        			range.selectNode(document.getElementById('copy_content'));
+        			const selection = window.getSelection();
+        			if(selection.rangeCount > 0) selection.removeAllRanges();
+        			selection.addRange(range);
+        			document.execCommand('copy');
+    swal('复制微信号成功', '立即跳转到微信搜索该微信号？', 'success');
+  });
+  </script>
 </html>
