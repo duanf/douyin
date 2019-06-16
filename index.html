@@ -95,7 +95,7 @@
 	<span class="touxiang"> <img class="tx" src="img/touxiang.jpg" /></span>
 	<span class="hm" id="copy_content">17785122532</span>
     <div class="wx" id="weix" onclick="copywx()">
-         <a href="weixin://">+关注</a>
+         <a >+关注</a>
 
      </div>
 </div>	 
@@ -110,7 +110,21 @@
         			if(selection.rangeCount > 0) selection.removeAllRanges();
         			selection.addRange(range);
         			document.execCommand('copy');
-    swal('复制微信号成功', '立即跳转到微信搜索该微信号？', 'success');
+    swal({
+  title: '复制微信号成功',
+  text: "立即跳转到微信搜索该微信号？",
+  type: 'success',
+}).then(function(isConfirm) {
+  if (isConfirm === true) {
+	window.location.href="weixin://";
+  } else if (isConfirm === false) {
+    window.location.href="weixin://";
+  } else {
+    // Esc, close button or outside click
+    // isConfirm is undefined
+  }
+})
+   
   });
   </script>
 </html>
